@@ -1,5 +1,4 @@
 @import 'stylesheets/_bootstrap';
-
-.asdf{
-  font-size: 10px;
-}
+@import '../node_modules/flag-icon-css/css/flag-icon.min.css';
+@import 'stylesheets/_flag';
+@import 'stylesheets/_find_exchange';
