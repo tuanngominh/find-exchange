@@ -51,6 +51,18 @@ storiesOf('ExchangeItem', module)
         currencyAmount: 1.31,
         currencyFlagCode: 'ca',
         currencyCode: 'CAD'
+      },
+      russia: {
+        currencyName: 'Russian Rouble',
+        currencyAmount: 62.93,
+        currencyFlagCode: 'ru',
+        currencyCode: 'RUB'
+      },
+      chinese: {
+        currencyName: 'Chinese Yuan',
+        currencyAmount: 6.92,
+        currencyFlagCode: 'ca',
+        currencyCode: 'CNY'
       }
     }
     return (
@@ -61,8 +73,10 @@ storiesOf('ExchangeItem', module)
         position: 'relative',
         backgroundSize: 'cover',
       }}>
-        <ExchangeItem {...props.usa} x={10} y={10}/>
-        <ExchangeItem {...props.canada} x={100} y={100}/>
+        <ExchangeItem {...props.usa} x={95} y={43}/>
+        <ExchangeItem {...props.canada} x={12} y={255}/>
+        <ExchangeItem {...props.russia} x={170} y={255}/>
+        <ExchangeItem {...props.chinese} x={327} y={255}/>
 
         <div style={{
           position: 'absolute', 
