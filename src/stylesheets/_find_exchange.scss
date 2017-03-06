@@ -20,7 +20,7 @@ $exchange-item-size: 130px;
 
   //blur background image
   position: relative;
-  &::before {
+  .blur-background {
     display: block;
     position: absolute;
     //move the black area near border out of view
@@ -42,7 +42,7 @@ $exchange-item-size: 130px;
     width: $exchange-item-size + 10;
     height: $exchange-item-size + 10;
     overflow: hidden;
-    background-image: url('http://www.antelopeslotcanyon.com/images/rocketlauncher/home/showcase/img-05.jpg')
+    background: url('http://www.antelopeslotcanyon.com/images/rocketlauncher/home/showcase/img-05.jpg')
   }
 
 

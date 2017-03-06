@@ -23,7 +23,7 @@ storiesOf('ExchangeItem', module)
         position: 'relative',
         backgroundSize: 'cover',
       }}>
-        <ExchangeItem {...props} />
+        <ExchangeItem {...props}  x={100} y={100} />
 
         <div style={{
           position: 'absolute', 
@@ -58,12 +58,11 @@ storiesOf('ExchangeItem', module)
         width: 460,
         height: 460,
         background: "url('http://www.antelopeslotcanyon.com/images/rocketlauncher/home/showcase/img-05.jpg') no-repeat",
-        padding: 10,
         position: 'relative',
         backgroundSize: 'cover',
       }}>
-        <ExchangeItem {...props.usa} />
-        <ExchangeItem {...props.canada} />
+        <ExchangeItem {...props.usa} x={10} y={10}/>
+        <ExchangeItem {...props.canada} x={100} y={100}/>
 
         <div style={{
           position: 'absolute', 

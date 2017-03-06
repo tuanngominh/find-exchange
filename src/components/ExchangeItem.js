@@ -1,13 +1,28 @@
 import React, {Component} from 'react'
 
+const Background = (props) => {
+  return <div className="blur-background" style={props.style}></div>
+}
+
+const bgImageUrl = 'http://www.antelopeslotcanyon.com/images/rocketlauncher/home/showcase/img-05.jpg'
+
 class ExchangeItem extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+    const x = props.x ? props.x : 0;
+    const y = props.y ? props.y : 0;
     this.state = {
       dragging: false,
-      dx: 0,
-      dy: 0,
-      transitionClass: ''
+      transitionClass: '',
+      x,
+      y, 
+      style: {
+        left: x,
+        top: y
+      },
+      backgroundStyle: {
+        background: `url('${bgImageUrl}') no-repeat top -${y}px left -${x}px`
+      }
     };
   }
 
@@ -19,8 +34,6 @@ class ExchangeItem extends Component {
     // Update state with above coordinates, and set dragging to true.
     const state = {
       dragging: true,
-      dx: 0,
-      dy: 0,
       startX,
       startY,
       transitionClass: ''
@@ -48,43 +61,42 @@ class ExchangeItem extends Component {
     // Move element using the deltas
     // Update the state
     this.setState({
-      dx: dx,
-      dy: dy,
+      style: {
+        left: this.state.x,
+        top: this.state.y,
+        transform: `translate(${dx}px, ${dy}px)`
+      },
+      backgroundStyle: {
+        background: `url('${bgImageUrl}') no-repeat top -${dy + this.state.y}px left -${dx + this.state.x}px`
+      }
     });
   }
 
   onDragEnd = () => {
-    console.log('drag end')
     this.setState((prevState) => {
       return { 
         dragging: false,
-        dx: 0,
-        dy: 0,
         startX: 0,
         startY: 0,
-        transitionClass: 'end-animation'
+        transitionClass: 'end-animation',
+        style: {left: this.state.x, top: this.state.y},
+        backgroundStyle: {
+          background: `url('${bgImageUrl}') no-repeat top -${this.state.y}px left -${this.state.x}px`  
+        }
       }
     });
   }
 
   render() {
-    let style
-    if (!this.state.transitionClass) {
-      style = {
-        transform: `translate(${this.state.dx}px, ${this.state.dy}px)`
-      }
-    } else {
-      style={}
-    }
-    
     return(
       <figure className={'exchange-item ' + this.state.transitionClass}
-        style={style}
+        style={this.state.style}
         onMouseDown={this.onDragStart}
         onMouseMove={this.onDragMove}
         onMouseUp={this.onDragEnd}
         onMouseOut={this.onDragEnd}
       >
+        <Background style={this.state.backgroundStyle} />
         <div className={`flag-icon flag-icon-${this.props.currencyFlagCode}`}>
         </div>
         <div className='currency-name'>{this.props.currencyName}</div>
