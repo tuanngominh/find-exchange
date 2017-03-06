@@ -74,9 +74,9 @@ storiesOf('ExchangeItem', module)
         backgroundSize: 'cover',
       }}>
         <ExchangeItem {...props.usa} x={95} y={43}/>
-        <ExchangeItem {...props.canada} x={12} y={255}/>
-        <ExchangeItem {...props.russia} x={170} y={255}/>
-        <ExchangeItem {...props.chinese} x={327} y={255}/>
+        <ExchangeItem {...props.canada} x={12} y={250}/>
+        <ExchangeItem {...props.russia} x={170} y={250}/>
+        <ExchangeItem {...props.chinese} x={327} y={250}/>
 
         <div style={{
           position: 'absolute', 
